@@ -1,25 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Button, createTheme, ThemeProvider } from '@mui/material';
+import { orange } from '@mui/material/colors';
+import { useState } from 'react';
+import { AppStyled } from './App.styles';
+import { DocForm } from './components';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#051D59'
+    },
+    secondary: {
+      main: '#FA9D26'
+    },
+    success: {
+      main: '#509A5F'
+    }
+  },
+  components: {
+    MuiContainer: {
+      styleOverrides: {
+        root: {
+        }
+      }
+    }
+  }
+});
 
 function App() {
+  const [formOpen, setFormOpen] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <AppStyled>
+        {!formOpen ?
+          <Button
+            onClick={() => setFormOpen(true)}
+            variant="contained"
+          >
+            Open Form
+          </Button> :
+          <DocForm close={() => setFormOpen(false)} />
+        }
+      </AppStyled>
+    </ThemeProvider>
   );
 }
 
