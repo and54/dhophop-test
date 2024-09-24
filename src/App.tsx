@@ -1,32 +1,9 @@
-import { Button, createTheme, ThemeProvider } from '@mui/material';
-import { orange } from '@mui/material/colors';
+import { Button, ThemeProvider } from '@mui/material';
 import { useState } from 'react';
-import { AppStyled } from './App.styles';
+import { AppStyled, theme } from './App.styles';
 import { DocForm } from './components';
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#051D59'
-    },
-    secondary: {
-      main: '#FA9D26'
-    },
-    success: {
-      main: '#509A5F'
-    }
-  },
-  components: {
-    MuiContainer: {
-      styleOverrides: {
-        root: {
-        }
-      }
-    }
-  }
-});
-
-function App() {
+const App = () => {
   const [formOpen, setFormOpen] = useState(false);
 
   return (

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Box, Button, LinearProgress } from '@mui/material';
+import { Button, LinearProgress } from '@mui/material';
 import { useDropzone, FileWithPath } from 'react-dropzone';
 import { TextSnippet as TextSnippetIcon, UploadFile as UploadFileIcon } from '@mui/icons-material';
 import { DragStyled } from './styles';

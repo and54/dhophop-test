@@ -1,4 +1,4 @@
-import { styled } from '@mui/material';
+import { createTheme, styled } from '@mui/material';
 
 export const AppStyled = styled("div")(({ theme }) => ({
   minHeight: `calc(100vh - ${theme.spacing(4)})`,
@@ -14,3 +14,25 @@ export const AppStyled = styled("div")(({ theme }) => ({
     borderRadius: theme.spacing(1),
   }
 }));
+
+export const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#051D59'
+    },
+    secondary: {
+      main: '#FA9D26'
+    },
+    success: {
+      main: '#509A5F'
+    }
+  },
+  components: {
+    MuiContainer: {
+      styleOverrides: {
+        root: {
+        }
+      }
+    }
+  }
+});
